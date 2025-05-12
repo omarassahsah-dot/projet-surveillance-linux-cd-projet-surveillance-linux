@@ -1,0 +1,9 @@
+[Unit]
+Description=Timer pour backup quotidien
+
+[Timer]
+OnCalendar=daily       # Déclenche une fois par jour
+Persistent=true         # Exécute le job s’il a été manqué (ex: PC éteint)
+
+[Install]
+WantedBy=timers.target

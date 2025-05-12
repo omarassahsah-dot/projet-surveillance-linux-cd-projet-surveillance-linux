@@ -1,0 +1,16 @@
+
+# Fichier : /etc/systemd/system/monitor.service
+
+[Unit]
+Description=Service de surveillance du répertoire important
+After=network.target  # Attente que le réseau soit actif
+
+[Service]
+ExecStart=/opt/monitor.sh
+Restart=always        # Redémarrage automatique si erreur
+User=USER_NAME        # Remplacer par l'utilisateur réel
+StandardOutput=append:/var/log/monitor_backup.log
+StandardError=append:/var/log/monitor_backup.log
+
+[Install]
+WantedBy=multi-user.target
